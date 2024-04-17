@@ -9,13 +9,13 @@ class WaterMarkingManager:
     def __init__(self):
         self.window = Tk()
         self.window.title("Watermarking Desktop App")
-        self.window.config(padx=30, pady=30)
-        self.canvas = Canvas(width=900, height=700)
+        self.window.config(padx=30, pady=10)
+        self.canvas = Canvas(width=850, height=610)
 
         # images handling
         self.default_img = PhotoImage(file='start.png')
         self.canvas_picture = self.canvas.create_image(400, 300, image=self.default_img)
-        self.canvas.grid(row=0, column=0, rowspan=12)
+        self.canvas.grid(row=0, column=0, rowspan=10)
         self.uploaded_img = None
         self.combined = None
         self.combined_tk = None
@@ -38,18 +38,18 @@ class WaterMarkingManager:
         self.label_path_file.grid(row=3, column=1, sticky="w", columnspan=2)
 
         label_text = Label(text="Text vodoznaku:")
-        label_text.grid(row=8, column=1, sticky="w", columnspan=2)
+        label_text.grid(row=5, column=1, sticky="w", columnspan=2)
         label_text.focus()
 
         self.entry_text = Entry(width=40)
-        self.entry_text.grid(row=9, column=1, sticky="w", columnspan=2)
+        self.entry_text.grid(row=6, column=1, sticky="w", columnspan=2)
         self.entry_text.insert(END, "©jan-barto")
 
         button_preview = Button(text="Přidat", command=self.add_mark_pil)
-        button_preview.grid(row=10, column=1, sticky="w")
+        button_preview.grid(row=7, column=1, sticky="w")
 
         button_perform = Button(text="Uložit", command=self.save_file)
-        button_perform.grid(row=10, column=2, sticky="w")
+        button_perform.grid(row=7, column=2, sticky="w")
 
         self.window.mainloop()
 
